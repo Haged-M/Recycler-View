@@ -1,6 +1,7 @@
 package com.o_t.rycyclerview;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
         createDummyData();
         contactsRecyclerView = findViewById(R.id.contact_recyclerView);
         adapter = new ContactsAdapter(contactsList);
+        adapter.setOnContactClickListener(new OnContactClickListener() {
+            @Override
+            public void onContactClick(Contact contact, int position) {
+                Toast.makeText(MainActivity.this, contact.getName() + contact.getPhoneNumber(), Toast.LENGTH_SHORT).show();            }
+        });
         contactsRecyclerView.setAdapter(adapter);
     }
 

@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ContactViewHolder> {
 
     ArrayList<Contact> contactList;
+    OnContactClickListener onContactClickListener;
 
     public ContactsAdapter(ArrayList<Contact> contactList) {
         this.contactList = contactList;
@@ -35,6 +36,18 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         holder.contactImage.setImageResource(contact.getImage());
         holder.contactName.setText(contact.getName());
         holder.contactPhoneNumber.setText(contact.getPhoneNumber());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(onContactClickListener != null)
+                    onContactClickListener.onContactClick(contact, position);
+            }
+        });
+    }
+
+    public void setOnContactClickListener(OnContactClickListener onContactClickListener) {
+        this.onContactClickListener = onContactClickListener;
     }
 
     @Override
