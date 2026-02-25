@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.o_t.rycyclerview.R
 
 class ContactAdapter(val contactList : List<Contact>? = null) : RecyclerView.Adapter<ContactAdapter.ContactViewHolder>(){
+
+    lateinit var onContactClickListener: com.o_t.rycyclerview.kotlin.OnContactClickListener
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
