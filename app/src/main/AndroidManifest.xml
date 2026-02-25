@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RycyclerView">
         <activity
-            android:name=".kotlin.ContactsActivity"
-            android:exported="true" >
+            android:name=".kotlin.WhatsAppActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,10 +21,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".kotlin.ContactsActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="false"/>
-
-
+            android:exported="false" />
     </application>
 
 </manifest>
